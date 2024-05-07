@@ -1,0 +1,22 @@
+{
+  "name": "potch-game",
+  "version": "1.0.0",
+  "description": "copy of potch's pixie js-driven game",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Potch"
+  },
+  "keywords": [
+    "Potch",
+    "Pixi",
+    "Js",
+    "Node",
+    "NPM"
+  ],
+  "author": "Daniel Schumaker",
+  "license": "MIT"
+}
