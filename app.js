@@ -17,7 +17,7 @@ const TILE_SIZE = 16; // width of each square tile in pixels
     // let bunny = new PIXI.Sprite(texture);
 
     const loadedImage = await PIXI.Assets.load("./assets/nature-paltformer-tileset-16x16.png");
-    let frame = new PIXI.Texture(32,32,16,16);
+    let frame = new PIXI.Rectangle(32,32,16,16);
     const croppedImage = new PIXI.Texture(loadedImage, frame);
     let bunny = new PIXI.Sprite(croppedImage);
     // Add to stage.
