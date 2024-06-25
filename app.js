@@ -1,48 +1,70 @@
 const TILE_SIZE = 16; // width of each square tile in pixels
+
+
 (async () =>
 {
+    const map = {
+        width: 20,
+        height: 10,
+        tiles: [
+            [{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
+            [{x:4,y:10},{x:2,y:7},{x:4,y:8},{x:3,y:7},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
+            [{x:2,y:7},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:3,y:7},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
+            [{x:2,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:3,y:7},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
+            [{x:4,y:10},{x:2,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:3,y:8},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
+            [{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
+            [{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
+            [{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
+            [{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0}],
+            [{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1}],
+        ]
+    }
+    const sky = {
+        width: 20,
+        height: 10,
+        tiles: [
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 
+            74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74, 74
+        ]
+    }
     // Create a PixiJS application.
     const app = new PIXI.Application();
 
     // Intialize the application.
-    await app.init({ background: '#1099bb', resizeTo: window });
+    await app.init({resizeTo: window });
 
     // Then adding the application's canvas to the DOM body.
     document.body.appendChild(app.canvas);
 
-    // Load the bunny texture.
-    // const texture = await PIXI.Assets.load('https://pixijs.com/assets/bunny.png');
+    const tileTextures = await splitTiles('nature-platformer-tileset-16x16.png');
 
-    // Create a new Sprite from an image path.
-    // let bunny = new PIXI.Sprite(texture);
-
-    const loadedImage = await PIXI.Assets.load("./assets/nature-paltformer-tileset-16x16.png");
-    let frame = new PIXI.Rectangle(32,32,16,16);
-    const croppedImage = new PIXI.Texture(loadedImage, frame);
-    let bunny = new PIXI.Sprite(croppedImage);
-    // Add to stage.
-    app.stage.addChild(bunny);
-
-    // Center the sprite's anchor point.
-    bunny.anchor.set(0.5);
-
-    // Move the sprite to the center of the screen.
-    bunny.x = app.screen.width / 2;
-    bunny.y = app.screen.height / 2;
-    app.ticker.add((time) =>
-        {
-            /**
-             * Just for fun, let's rotate mr rabbit a little.
-             * Time is a Ticker object which holds time related data.
-             * Here we use deltaTime, which is the time elapsed between the frame callbacks
-             * to create frame-independent transformation. Keeping the speed consistent.
-             */
-            bunny.rotation += 0.01 * time.deltaTime;
-        });
+    let background = new PIXI.Container();
+    for (let y=0; y<map.height; y++) {
+        for (let x=0; x<map.width; x++) {
+            let tile = map.tiles[y][x]
+            let sprite = new PIXI.Sprite(tileTextures[tile.x][tile.y]);
+            sprite.x = x*TILE_SIZE;
+            sprite.y = y*TILE_SIZE;
+            background.addChild(sprite);
+        }
+    }
+    background.scale.x = 4;
+    background.scale.y = 4;
+    PIXI.TexturePool.textureOptions.scaleMode = 'nearest';
+    app.stage.addChild(background);
     })();
 
 async function splitTiles(filename) {
     const tileTextures = await PIXI.Assets.load('./assets/' + filename);
+    tileTextures.source.scaleMode = 'nearest'; // keeps scaled textures pixelated (removes blurriness)
     let tiles = [];
     const xMax = tileTextures.width/TILE_SIZE;
     const yMax = tileTextures.height/TILE_SIZE;
@@ -50,8 +72,11 @@ async function splitTiles(filename) {
         let column = [];
         for (let y = 0; y < yMax; y++) {
             const frame = new PIXI.Rectangle(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE);
-            console.log(frame);
-            column[y] = new PIXI.Texture(tileTextures, frame);
+            let tile = new PIXI.Texture({
+                source: tileTextures,
+                frame: frame
+            }); // loads all tiles and stores all of them into tile variable
+            column[y] = tile;
         }
         tiles[x] = column;
     }
