@@ -3,23 +3,23 @@ const TILE_SIZE = 16; // width of each square tile in pixels
 
 (async () =>
 {
-    const map = {
+    const tileMap = {
         width: 20,
         height: 10,
         tiles: [
-            [{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
-            [{x:4,y:10},{x:2,y:7},{x:4,y:8},{x:3,y:7},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
-            [{x:2,y:7},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:3,y:7},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
-            [{x:2,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:3,y:7},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
-            [{x:4,y:10},{x:2,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:4,y:8},{x:3,y:8},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
-            [{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
-            [{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
-            [{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10},{x:4,y:10}],
-            [{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0},{x:1,y:0}],
-            [{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1},{x:1,y:1}],
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
         ]
     }
-    const sky = {
+    const skyMap = {
         width: 20,
         height: 10,
         tiles: [
@@ -47,38 +47,44 @@ const TILE_SIZE = 16; // width of each square tile in pixels
     const tileTextures = await splitTiles('nature-platformer-tileset-16x16.png');
 
     let background = new PIXI.Container();
-    for (let y=0; y<map.height; y++) {
-        for (let x=0; x<map.width; x++) {
-            let tile = map.tiles[y][x]
-            let sprite = new PIXI.Sprite(tileTextures[tile.x][tile.y]);
-            sprite.x = x*TILE_SIZE;
-            sprite.y = y*TILE_SIZE;
-            background.addChild(sprite);
-        }
-    }
+    let sky = new PIXI.Container();
+    populateContainer(tileTextures, tileMap, background);
+    populateContainer(tileTextures, skyMap, sky);
     background.scale.x = 4;
     background.scale.y = 4;
-    PIXI.TexturePool.textureOptions.scaleMode = 'nearest';
+    sky.scale.x = 4;
+    sky.scale.y = 4;
+    app.stage.addChild(sky);
     app.stage.addChild(background);
     })();
 
 async function splitTiles(filename) {
-    const tileTextures = await PIXI.Assets.load('./assets/' + filename);
-    tileTextures.source.scaleMode = 'nearest'; // keeps scaled textures pixelated (removes blurriness)
-    let tiles = [];
-    const xMax = tileTextures.width/TILE_SIZE;
-    const yMax = tileTextures.height/TILE_SIZE;
-    for (let x = 0; x < xMax; x++) {
-        let column = [];
-        for (let y = 0; y < yMax; y++) {
+    const tileSet = await PIXI.Assets.load('./assets/' + filename);
+    tileSet.source.scaleMode = 'nearest'; // keeps scaled textures pixelated (removes blurriness)
+    let tileTextures = [];
+    const xMax = tileSet.width/TILE_SIZE;
+    const yMax = tileSet.height/TILE_SIZE;
+    for (let y = 0; y < yMax; y++) {
+        for (let x = 0; x < xMax; x++) {
             const frame = new PIXI.Rectangle(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE);
             let tile = new PIXI.Texture({
-                source: tileTextures,
+                source: tileSet,
                 frame: frame
             }); // loads all tiles and stores all of them into tile variable
-            column[y] = tile;
+            tileTextures[y*xMax+x] = tile;
         }
-        tiles[x] = column;
     }
-    return tiles;
+    return tileTextures;
+}
+
+async function populateContainer(tileTextures, map, container) {
+    for (let y=0; y<map.height; y++) {
+        for (let x=0; x<map.width; x++) {
+            let tile = map.tiles[y*map.width+x]
+            let sprite = new PIXI.Sprite(tileTextures[tile]);
+            sprite.x = x*TILE_SIZE;
+            sprite.y = y*TILE_SIZE;
+            container.addChild(sprite);
+        }
+    }
 }
