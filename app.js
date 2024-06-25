@@ -131,8 +131,10 @@ class Keyboard {
     document.body.appendChild(app.canvas);
 
     const tileTextures = await splitTiles('nature-platformer-tileset-16x16.png');
-    
-
+    const characterFrames = await splitCharacterFrames('characterFrames.png',1,2)
+    let sprite = PIXI.Sprite.from(characterFrames[1])
+    sprite.scale.x = sprite.scale.y = SCALE;
+    sprite.x = sprite.y = 32;
 
     let background = new PIXI.Container();
     let sky = new PIXI.Container();
@@ -142,5 +144,6 @@ class Keyboard {
     sky.scale.x = sky.scale.y = SCALE;
     app.stage.addChild(sky);
     app.stage.addChild(background);
-
+    app.stage.addChild(sprite);
+    console.log(characterFrames);
     })();
